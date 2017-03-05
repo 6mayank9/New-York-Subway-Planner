@@ -4,11 +4,11 @@ import matplotlib.pyplot as plt
 class station:                                # station class to store attributes of each subway station
 
     def __init__(self, stop_id, stop_name, trains):
-        self.id = stop_id
-        self.name = stop_name
-        self.trains = trains
+        self.id = stop_id                     # Unique Station ID
+        self.name = stop_name                 # Station name
+        self.trains = trains                  # List of trains at this staion
 
-G = nx.Graph()
+G = nx.Graph()                                # Undirected graph
 stations = []
 b = station("a", "a", "a")
 with open('SubwayStops.csv') as csvfile:
@@ -17,7 +17,7 @@ with open('SubwayStops.csv') as csvfile:
     for row in readCsv:
         a = station(row[0],row[1],row[5])
         if(a.id[0]==b.id[0]):
-            G.add_edge(a, b)
+            G.add_edge(a, b)                  # Add weight of edges here if required or later when reading gpickle file
         stations.append(a)
         b = a
 nx.write_gpickle(G,"subwaygraph.gpickle")
