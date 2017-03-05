@@ -24,6 +24,13 @@ with open('SubwayStops.csv') as csvfile:
         b = a
 nx.write_gpickle(G,"subwaygraph.gpickle")
 
+
+'''Get Neighbors from station id'''
+k = G.neighbors(subwayDictionary["F02"])
+print subwayDictionary["F02"].name+" number of neighbors are ",len(k)
+for i in range(len(k)):
+    print k[i].name
+
 #print nx.info(G)
 nx.draw(G)
 #print nx.is_connected(G)
@@ -31,5 +38,5 @@ D = list(nx.connected_component_subgraphs(G)) # Get the list of connected compon
 #for i in range(len(D[20])):
 #    print D[20].nodes()[i].id
 
-print nx.info(D[0])
+#print nx.info(D[0])
 #plt.show()
