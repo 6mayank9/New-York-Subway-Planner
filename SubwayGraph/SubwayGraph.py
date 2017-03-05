@@ -2,7 +2,6 @@ import csv
 import networkx as nx
 import matplotlib.pyplot as plt
 class station:                                # station class to store attributes of each subway station
-
     def __init__(self, stop_id, stop_name, trains):
         self.id = stop_id                     # Unique Station ID
         self.name = stop_name                 # Station name
@@ -22,8 +21,9 @@ with open('SubwayStops.csv') as csvfile:
             G.add_edge(a, b)                  # Add weight of edges here if required or later when reading gpickle file
         stations.append(a)
         b = a
-nx.write_gpickle(G,"subwaygraph.gpickle")
-
+import pickle
+newfile = open("alldumps.pkl","wb")           # Dumps the graph and dictionary to a file
+pickle.dump([subwayDictionary,G],newfile)
 
 '''Get Neighbors from station id'''
 k = G.neighbors(subwayDictionary["F02"])
