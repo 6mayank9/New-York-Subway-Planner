@@ -1,3 +1,5 @@
+'''Example of how to load the graph and dictionary
+'''
 import pickle
 class station:                                # station class to store attributes of each subway station
     def __init__(self, stop_id, stop_name, trains):

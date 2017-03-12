@@ -1,0 +1,213 @@
+stop_id,stop_name,stop_lat,stop_lon,stop_id2,trains,GEOID,NAMELSAD
+101,Van Cortlandt Park - 242 St,40.889248,-73.898583,,1,36005,Bronx County
+103,238 St,40.884667,-73.90087,,1,36005,Bronx County
+104,231 St,40.878856,-73.904834,,1,36005,Bronx County
+106,Marble Hill - 225 St,40.874561,-73.909831,,1,36061,New York County
+107,215 St,40.869444,-73.915279,,1,36061,New York County
+108,207 St,40.864621,-73.918822,,1,36061,New York County
+109,Dyckman St,40.860531,-73.925536,,1,36061,New York County
+110,191 St,40.855225,-73.929412,,1,36061,New York County
+111,181 St,40.849505,-73.933596,,1,36061,New York County
+112,168 St - Washington Hts,40.840556,-73.940133,,1,36061,New York County
+113,157 St,40.834041,-73.94489,,1,36061,New York County
+114,145 St,40.826551,-73.95036,,1,36061,New York County
+115,137 St - City College,40.822008,-73.953676,,1,36061,New York County
+116,125 St,40.815581,-73.958372,,1,36061,New York County
+117,116 St - Columbia University,40.807722,-73.96411,,1,36061,New York County
+118,Cathedral Pkwy,40.803967,-73.966847,,1,36061,New York County
+119,103 St,40.799446,-73.968379,,1,36061,New York County
+120,96 St,40.793919,-73.972323,,1 2 3,36061,New York County
+121,86 St,40.788644,-73.976218,,1,36061,New York County
+122,79 St,40.783934,-73.979917,,1,36061,New York County
+123,72 St,40.778453,-73.98197,,1 2 3,36061,New York County
+124,66 St - Lincoln Center,40.77344,-73.982209,,1,36061,New York County
+125,59 St - Columbus Circle,40.768247,-73.981929,,1,36061,New York County
+126,50 St,40.761728,-73.983849,,1,36061,New York County
+127,Times Sq - 42 St,40.75529,-73.987495,,1 2 3,36061,New York County
+128,34 St - Penn Station,40.750373,-73.991057,,1 2 3,36061,New York County
+129,28 St,40.747215,-73.993365,,1,36061,New York County
+130,23 St,40.744081,-73.995657,,1,36061,New York County
+131,18 St,40.74104,-73.997871,,1,36061,New York County
+132,14 St,40.737826,-74.000201,,1 2 3,36061,New York County
+133,Christopher St - Sheridan Sq,40.733422,-74.002906,,1,36061,New York County
+134,Houston St,40.728251,-74.005367,,1,36061,New York County
+135,Canal St,40.722854,-74.006277,,1,36061,New York County
+136,Franklin St,40.719318,-74.006886,,1,36061,New York County
+137,Chambers St,40.715478,-74.009266,,1 2 3,36061,New York County
+138,Cortlandt St (Closed),40.711835,-74.012188,,1,36061,New York County
+139,Rector St,40.707513,-74.013783,,1,36061,New York County
+140,South Ferry Loop,40.701411,-74.013205,,1,36061,New York County
+201,Wakefield - 241 St,40.903125,-73.85062,,2,36005,Bronx County
+204,Nereid Av,40.898379,-73.854376,,2 5,36005,Bronx County
+205,233 St,40.893193,-73.857473,,2 5,36005,Bronx County
+206,225 St,40.888022,-73.860341,,2 5,36005,Bronx County
+207,219 St,40.883895,-73.862633,,2 5,36005,Bronx County
+208,Gun Hill Rd,40.87785,-73.866256,,2 5,36005,Bronx County
+209,Burke Av,40.871356,-73.867164,,2 5,36005,Bronx County
+210,Allerton Av,40.865462,-73.867352,,2 5,36005,Bronx County
+211,Pelham Pkwy,40.857192,-73.867615,,2 5,36005,Bronx County
+212,Bronx Park East,40.848828,-73.868457,,2 5,36005,Bronx County
+213,E 180 St,40.841894,-73.873488,,2 5,36005,Bronx County
+214,West Farms Sq - E Tremont Av,40.840295,-73.880049,,2 5,36005,Bronx County
+215,174 St,40.837288,-73.887734,,2 5,36005,Bronx County
+216,Freeman St,40.829993,-73.891865,,2 5,36005,Bronx County
+217,Simpson St,40.824073,-73.893064,,2 5,36005,Bronx County
+218,Intervale Av,40.822181,-73.896736,,2 5,36005,Bronx County
+219,Prospect Av,40.819585,-73.90177,,2 5,36005,Bronx County
+220,Jackson Av,40.81649,-73.907807,,2 5,36005,Bronx County
+221,3 Av - 149 St,40.816109,-73.917757,,2 5,36005,Bronx County
+222,149 St - Grand Concourse,40.81841,-73.926718,,2,36005,Bronx County
+224,135 St,40.814229,-73.94077,,2 3,36061,New York County
+225,125 St,40.807754,-73.945495,,2 3,36061,New York County
+226,116 St,40.802098,-73.949625,,2 3,36061,New York County
+227,Central Park North (110 St),40.799075,-73.951822,,2 3,36061,New York County
+120,96 St,40.793919,-73.972323,,1 2 3,36061,New York County
+123,72 St,40.778453,-73.98197,,1 2 3,36061,New York County
+127,Times Sq - 42 St,40.75529,-73.987495,,1 2 3,36061,New York County
+128,34 St - Penn Station,40.750373,-73.991057,,1 2 3,36061,New York County
+132,14 St,40.737826,-74.000201,,1 2 3,36061,New York County
+137,Chambers St,40.715478,-74.009266,,1 2 3,36061,New York County
+228,Park Pl,40.713051,-74.008811,,2 3,36061,New York County
+229,Fulton St,40.709416,-74.006571,,2 3,36061,New York County
+230,Wall St,40.706821,-74.0091,,2 3,36061,New York County
+231,Clark St,40.697466,-73.993086,,2 3,36047,Kings County
+232,Borough Hall,40.693219,-73.989998,,2 3,36047,Kings County
+233,Hoyt St,40.690545,-73.985065,,2 3,36047,Kings County
+234,Nevins St,40.688246,-73.980492,,2 3 4 5,36047,Kings County
+235,Atlantic Av - Barclays Ctr,40.684359,-73.977666,,2 3 4 5,36047,Kings County
+236,Bergen St,40.680829,-73.975098,,2 3,36047,Kings County
+237,Grand Army Plaza,40.675235,-73.971046,,2 3,36047,Kings County
+238,Eastern Pkwy - Brooklyn Museum,40.671987,-73.964375,,2 3,36047,Kings County
+239,Franklin Av,40.670682,-73.958131,,2 3 4 5,36047,Kings County
+241,President St,40.667883,-73.950683,,2 5,36047,Kings County
+242,Sterling St,40.662742,-73.95085,,2 5,36047,Kings County
+243,Winthrop St,40.656652,-73.9502,,2 5,36047,Kings County
+244,Church Av,40.650843,-73.949575,,2 5,36047,Kings County
+245,Beverly Rd,40.645098,-73.948959,,2 5,36047,Kings County
+246,Newkirk Av,40.639967,-73.948411,,2 5,36047,Kings County
+247,Flatbush Av - Brooklyn College,40.632836,-73.947642,,2 5,36047,Kings County
+301,Harlem - 148 St,40.82388,-73.93647,,3,36061,New York County
+302,145 St,40.820421,-73.936245,,3,36061,New York County
+224,135 St,40.814229,-73.94077,,2 3,36061,New York County
+225,125 St,40.807754,-73.945495,,2 3,36061,New York County
+226,116 St,40.802098,-73.949625,,2 3,36061,New York County
+227,Central Park North (110 St),40.799075,-73.951822,,2 3,36061,New York County
+120,96 St,40.793919,-73.972323,,1 2 3,36061,New York County
+123,72 St,40.778453,-73.98197,,1 2 3,36061,New York County
+127,Times Sq - 42 St,40.75529,-73.987495,,1 2 3,36061,New York County
+128,34 St - Penn Station,40.750373,-73.991057,,1 2 3,36061,New York County
+132,14 St,40.737826,-74.000201,,1 2 3,36061,New York County
+137,Chambers St,40.715478,-74.009266,,1 2 3,36061,New York County
+228,Park Pl,40.713051,-74.008811,,2 3,36061,New York County
+229,Fulton St,40.709416,-74.006571,,2 3,36061,New York County
+230,Wall St,40.706821,-74.0091,,2 3,36061,New York County
+231,Clark St,40.697466,-73.993086,,2 3,36047,Kings County
+232,Borough Hall,40.693219,-73.989998,,2 3,36047,Kings County
+233,Hoyt St,40.690545,-73.985065,,2 3,36047,Kings County
+234,Nevins St,40.688246,-73.980492,,2 3 4 5,36047,Kings County
+235,Atlantic Av - Barclays Ctr,40.684359,-73.977666,,2 3 4 5,36047,Kings County
+236,Bergen St,40.680829,-73.975098,,2 3,36047,Kings County
+237,Grand Army Plaza,40.675235,-73.971046,,2 3,36047,Kings County
+238,Eastern Pkwy - Brooklyn Museum,40.671987,-73.964375,,2 3,36047,Kings County
+239,Franklin Av,40.670682,-73.958131,,2 3 4 5,36047,Kings County
+248,Nostrand Av,40.669847,-73.950466,,3,36047,Kings County
+249,Kingston Av,40.669399,-73.942161,,3,36047,Kings County
+250,Crown Hts - Utica Av,40.668897,-73.932942,,3 4,36047,Kings County
+251,Sutter Av - Rutland Rd,40.664717,-73.92261,,3,36047,Kings County
+252,Saratoga Av,40.661453,-73.916327,,3,36047,Kings County
+253,Rockaway Av,40.662549,-73.908946,,3,36047,Kings County
+254,Junius St,40.663515,-73.902447,,3,36047,Kings County
+255,Pennsylvania Av,40.664635,-73.894895,,3,36047,Kings County
+256,Van Siclen Av,40.665449,-73.889395,,3,36047,Kings County
+257,New Lots Av,40.666235,-73.884079,,3,36047,Kings County
+401,Woodlawn,40.886037,-73.878751,,4,36005,Bronx County
+402,Mosholu Pkwy,40.87975,-73.884655,,4,36005,Bronx County
+405,Bedford Park Blvd - Lehman College,40.873412,-73.890064,,4,36005,Bronx County
+406,Kingsbridge Rd,40.86776,-73.897174,,4,36005,Bronx County
+407,Fordham Rd,40.862803,-73.901034,,4,36005,Bronx County
+408,183 St,40.858407,-73.903879,,4,36005,Bronx County
+409,Burnside Av,40.853453,-73.907684,,4,36005,Bronx County
+410,176 St,40.84848,-73.911794,,4,36005,Bronx County
+411,Mt Eden Av,40.844434,-73.914685,,4,36005,Bronx County
+412,170 St,40.840075,-73.917791,,4,36005,Bronx County
+413,167 St,40.835537,-73.9214,,4,36005,Bronx County
+414,161 St - Yankee Stadium,40.827994,-73.925831,,4,36005,Bronx County
+415,149 St - Grand Concourse,40.818375,-73.927351,,4 5,36005,Bronx County
+416,138 St - Grand Concourse,40.813224,-73.929849,,4 5,36005,Bronx County
+418,Fulton St,40.710368,-74.009509,,4 5,36061,New York County
+419,Wall St,40.707557,-74.011862,,4 5,36061,New York County
+420,Bowling Green,40.704817,-74.014065,,4 5,36061,New York County
+423,Borough Hall,40.692404,-73.990151,,4 5,36047,Kings County
+234,Nevins St,40.688246,-73.980492,,2 3 4 5,36047,Kings County
+235,Atlantic Av - Barclays Ctr,40.684359,-73.977666,,2 3 4 5,36047,Kings County
+239,Franklin Av,40.670682,-73.958131,,2 3 4 5,36047,Kings County
+250,Crown Hts - Utica Av,40.668897,-73.932942,,3 4,36047,Kings County
+501,Eastchester - Dyre Av,40.8883,-73.830834,,5,36005,Bronx County
+502,Baychester Av,40.878663,-73.838591,,5,36005,Bronx County
+503,Gun Hill Rd,40.869526,-73.846384,,5,36005,Bronx County
+504,Pelham Pkwy,40.858985,-73.855359,,5,36005,Bronx County
+505,Morris Park,40.854364,-73.860495,,5,36005,Bronx County
+213,E 180 St,40.841894,-73.873488,,2 5,36005,Bronx County
+214,West Farms Sq - E Tremont Av,40.840295,-73.880049,,2 5,36005,Bronx County
+215,174 St,40.837288,-73.887734,,2 5,36005,Bronx County
+216,Freeman St,40.829993,-73.891865,,2 5,36005,Bronx County
+217,Simpson St,40.824073,-73.893064,,2 5,36005,Bronx County
+218,Intervale Av,40.822181,-73.896736,,2 5,36005,Bronx County
+219,Prospect Av,40.819585,-73.90177,,2 5,36005,Bronx County
+220,Jackson Av,40.81649,-73.907807,,2 5,36005,Bronx County
+221,3 Av - 149 St,40.816109,-73.917757,,2 5,36005,Bronx County
+415,149 St - Grand Concourse,40.818375,-73.927351,,4 5,36005,Bronx County
+416,138 St - Grand Concourse,40.813224,-73.929849,,4 5,36005,Bronx County
+621,125 St,40.804138,-73.937594,,4 5 6,36061,New York County
+640,Brooklyn Bridge - City Hall,40.713065,-74.004131,,4 5 6,36061,New York County
+418,Fulton St,40.710368,-74.009509,,4 5,36061,New York County
+419,Wall St,40.707557,-74.011862,,4 5,36061,New York County
+420,Bowling Green,40.704817,-74.014065,,4 5,36061,New York County
+423,Borough Hall,40.692404,-73.990151,,4 5,36047,Kings County
+234,Nevins St,40.688246,-73.980492,,2 3 4 5,36047,Kings County
+235,Atlantic Av - Barclays Ctr,40.684359,-73.977666,,2 3 4 5,36047,Kings County
+241,President St,40.667883,-73.950683,,2 5,36047,Kings County
+242,Sterling St,40.662742,-73.95085,,2 5,36047,Kings County
+243,Winthrop St,40.656652,-73.9502,,2 5,36047,Kings County
+244,Church Av,40.650843,-73.949575,,2 5,36047,Kings County
+245,Beverly Rd,40.645098,-73.948959,,2 5,36047,Kings County
+246,Newkirk Av,40.639967,-73.948411,,2 5,36047,Kings County
+247,Flatbush Av - Brooklyn College,40.632836,-73.947642,,2 5,36047,Kings County
+601,Pelham Bay Park,40.852462,-73.828121,,6,36005,Bronx County
+602,Buhre Av,40.84681,-73.832569,,6,36005,Bronx County
+603,Middletown Rd,40.843863,-73.836322,,6,36005,Bronx County
+604,Westchester Sq - E Tremont Av,40.839892,-73.842952,,6,36005,Bronx County
+606,Zerega Av,40.836488,-73.847036,,6,36005,Bronx County
+607,Castle Hill Av,40.834255,-73.851222,,6,36005,Bronx County
+608,Parkchester,40.833226,-73.860816,,6,36005,Bronx County
+609,St Lawrence Av,40.831509,-73.867618,,6,36005,Bronx County
+610,Morrison Av- Sound View,40.829521,-73.874516,,6,36005,Bronx County
+611,Elder Av,40.828584,-73.879159,,6,36005,Bronx County
+612,Whitlock Av,40.826525,-73.886283,,6,36005,Bronx County
+613,Hunts Point Av,40.820948,-73.890549,,6,36005,Bronx County
+614,Longwood Av,40.816104,-73.896435,,6,36005,Bronx County
+615,E 149 St,40.812118,-73.904098,,6,36005,Bronx County
+616,E 143 St - St Mary's St,40.808719,-73.907657,,6,36005,Bronx County
+617,Cypress Av,40.805368,-73.914042,,6,36005,Bronx County
+618,Brook Av,40.807566,-73.91924,,6,36005,Bronx County
+619,3 Av - 138 St,40.810476,-73.926138,,6,36005,Bronx County
+621,125 St,40.804138,-73.937594,,4 5 6,36061,New York County
+622,116 St,40.798629,-73.941617,,6,36061,New York County
+623,110 St,40.79502,-73.94425,,6,36061,New York County
+624,103 St,40.7906,-73.947478,,6,36061,New York County
+625,96 St,40.785672,-73.95107,,6,36061,New York County
+626,86 St,40.779492,-73.955589,,4 5 6,36061,New York County
+627,77 St,40.77362,-73.959874,,6,36061,New York County
+628,68 St - Hunter College,40.768141,-73.96387,,6,36061,New York County
+629,59 St,40.762526,-73.967967,,4 5 6,36061,New York County
+630,51 St,40.757107,-73.97192,,6,36061,New York County
+631,Grand Central - 42 St,40.751776,-73.976848,,4 5 6,36061,New York County
+632,33 St,40.746081,-73.982076,,6,36061,New York County
+633,28 St,40.74307,-73.984264,,6,36061,New York County
+634,23 St,40.739864,-73.986599,,6,36061,New York County
+635,14 St - Union Sq,40.734673,-73.989951,,4 5 6,36061,New York County
+636,Astor Pl,40.730054,-73.99107,,6,36061,New York County
+637,Bleecker St,40.725915,-73.994659,,6,36061,New York County
+638,Spring St,40.722301,-73.997141,,6,36061,New York County
+639,Canal St,40.718803,-74.000193,,6,36061,New York County
+640,Brooklyn Bridge - City Hall,40.713065,-74.004131,,4 5 6,36061,New York County
