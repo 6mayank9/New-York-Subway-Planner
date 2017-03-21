@@ -3,6 +3,18 @@
 import csv
 import networkx as nx
 import matplotlib.pyplot as plt
+import simplejson as json
+from networkx.readwrite import json_graph
+
+
+
+def adj_list_to_file(B,file_name):
+    f = open('Adjacency_List.txt', "w")
+    for n in B.nodes():
+        f.write(str(n.id) + ' ')
+        for neighbor in B.neighbors(n):
+            f.write(str(neighbor.id) + ' ')
+        f.write('\n')
 class station:                                # station class to store attributes of each subway station
     def __init__(self, stop_id, stop_name, trains):
         self.id = stop_id                     # Unique Station ID
@@ -30,7 +42,7 @@ with open('Lines1-6.csv') as csvfile:
             check+=100
 
         b = a
-'''Lines A-F graph'''
+'''Lines A-F graph
 for i in ["A","B","C","D","E","F"]:
     with open('Line'+i+'.csv') as file:
         readCsv = csv.reader(file, delimiter=',')
@@ -45,24 +57,28 @@ for i in ["A","B","C","D","E","F"]:
                 stations.append(a)
             G.add_edge(d,c)
             c=d
-
+'''
 import pickle
 newfile = open("alldumps.pkl","wb")           # Dumps the graph and dictionary to a file
 pickle.dump([subwayDictionary,G],newfile)
 
-'''Get Neighbors from station id'''
+'''Get Neighbors from station id
 k = G.neighbors(subwayDictionary["101"])
 print subwayDictionary["101"].name+" number of neighbors are ",len(k)
 for i in range(len(k)):
     print k[i].name+" "+k[i].id
-
+'''
 #print nx.info(G)
 nx.draw(G)
 #print nx.is_connected(G)
 D = list(nx.connected_component_subgraphs(G)) # Get the list of connected components
-print "Total connected components are: ",len(D)
-for i in range(len(D[0])):
-    print D[0].nodes()[i].id
+#print "Total connected components are: ",len(D)
+#for i in range(len(D[0])):
+#    print D[0].nodes()[i].id
+adj_list_to_file(G,"tst.txt")
 
+
+#with open('networkdata1.json', 'w') as outfile1:
+#    outfile1.write(json.dumps(json_graph.node_link_data(G)))
 #print nx.info(D[0])
 #plt.show()

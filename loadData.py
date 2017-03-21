@@ -9,7 +9,7 @@ class station:                                # station class to store attribute
 filehandler = open("alldumps.pkl","rb")
 subwayDictionary,G = pickle.load(filehandler)
 
-k = G.neighbors(subwayDictionary["F02"])
-print subwayDictionary["F02"].name+" number of neighbors are ",len(k)
+k = G.neighbors(subwayDictionary["104"])
+print subwayDictionary["104"].name+" number of neighbors are ",len(k)
 for i in range(len(k)):
     print k[i].name
