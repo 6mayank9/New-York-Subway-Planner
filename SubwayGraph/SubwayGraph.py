@@ -11,9 +11,9 @@ from networkx.readwrite import json_graph
 def adj_list_to_file(B,file_name):
     f = open('Adjacency_List.txt', "w")
     for n in B.nodes():
-        f.write(str(n.id) + ' ')
+        f.write(n + ' ')
         for neighbor in B.neighbors(n):
-            f.write(str(neighbor.id) + ' ')
+            f.write(neighbor + ' ')
         f.write('\n')
 class station:                                # station class to store attributes of each subway station
     def __init__(self, stop_id, stop_name, trains):
@@ -37,7 +37,7 @@ with open('Lines1-6.csv') as csvfile:
             subwayDictionary[str(row[0])] = a
             stations.append(a)
         if(a.id!=str(check)):
-            G.add_edge(a, b)                  # Add weight of edges here if required or later when reading gpickle file
+            G.add_edge(a.id, b.id, weight=1)                  # Add weight of edges here if required or later when reading gpickle file
         else:
             check+=100
 
@@ -78,7 +78,7 @@ D = list(nx.connected_component_subgraphs(G)) # Get the list of connected compon
 adj_list_to_file(G,"tst.txt")
 
 
-#with open('networkdata1.json', 'w') as outfile1:
-#    outfile1.write(json.dumps(json_graph.node_link_data(G)))
+with open('networkdata1.json', 'w') as outfile1:
+    outfile1.write(json.dumps(json_graph.node_link_data(G)))
 #print nx.info(D[0])
 #plt.show()

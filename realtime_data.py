@@ -31,19 +31,12 @@ def loopdwlmta(x):	## send request to api mta.info using my own key
 
     for entity in feed.entity:
         if entity.HasField('trip_update'):
-            ## trip update: 3 data characterisitcs
             TripIdi = entity.trip_update.trip.trip_id
             Routei = entity.trip_update.trip.route_id
-            ## looking to record first 2 predicted arrival time
-            ## looking to record first 2 predicted arrival time  ArriveTime=[]
-            stop_id=[]
-
-            tripcomplete=[]
             p3trip = min(len(entity.trip_update.stop_time_update),3)
             j=0
             while j < p3trip:
                 tripcomplete = []
-                # print j
                 ArrivalTime = entity.trip_update.stop_time_update[j].arrival.time
                 stop_id = entity.trip_update.stop_time_update[j].stop_id
                 station_nth = j
@@ -54,15 +47,7 @@ def loopdwlmta(x):	## send request to api mta.info using my own key
                     newfile.write(tripstr[0]+" "+tripstr[1]+" "+tripstr[2])
                     newfile.write("\n")
                 realtimedata.append([tripstr[0],tripstr[1],tripstr[2]])
-                s1 = tmpSys[11:19]
-                s2 = time.ctime(ArrivalTime)[11:19]
-                #print timediff(s1,s2)
-
-
                 j+=1
-
-
-
 """while True:
     try:
         loopdwlmta(1)
@@ -71,15 +56,19 @@ def loopdwlmta(x):	## send request to api mta.info using my own key
     time.sleep(30)
 """
 loopdwlmta(1)
-file = open("stopTimesData.pkl","rb")
-stopTimesData = pickle.load(file)
+staticDatafile = open("stopTimesData.pkl","rb")
+stopTimesData = pickle.load(staticDatafile)
 for i in realtimedata:
-    if(i[0] in stopTimesData):
+    if i[0] in stopTimesData:
         s1 = stopTimesData[i[0]][i[1]]
         s2 = i[2]
         delay = float(timediff(s1, s2))
+        print "TripId: "+i[0]+" Station ID: "+i[1]+" Original Time: "+stopTimesData[i[0]][i[1]]+" Current Arrival Time: "+i[2]+" Delay: ", delay
+        if delay > 0 and (i[1][0:3] != 902 or i[1][0:3] != 901):
+            k = G.neighbors(i[1][0:3])
+            for j in range(len(k)):
+                G[i[1][0:3]][k[j]]['weight'] += delay
 
-        print "TripId: "+i[0]+" Station ID: "+i[1]+" Original Time: "+stopTimesData[i[0]][i[1]]+" Current Arrival Time: "+i[2]+" Delay: ",delay
 
 
 
