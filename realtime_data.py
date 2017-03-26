@@ -1,7 +1,7 @@
 
 from google.transit import gtfs_realtime_pb2
 import urllib
-
+import networkx as nx
 import datetime
 import time
 import pickle
@@ -63,14 +63,17 @@ for i in realtimedata:
         s1 = stopTimesData[i[0]][i[1]]
         s2 = i[2]
         delay = float(timediff(s1, s2))
-        print "TripId: "+i[0]+" Station ID: "+i[1]+" Original Time: "+stopTimesData[i[0]][i[1]]+" Current Arrival Time: "+i[2]+" Delay: ", delay
-        if delay > 0 and (i[1][0:3] != 902 or i[1][0:3] != 901):
+        #print "TripId: "+i[0]+" Station ID: "+i[1]+" Original Time: "+stopTimesData[i[0]][i[1]]+" Current Arrival Time: "+i[2]+" Delay: ", delay
+        if delay > 0 and i[1][0:3] != str(902) and i[1][0:3] != str(901):
             k = G.neighbors(i[1][0:3])
             for j in range(len(k)):
                 G[i[1][0:3]][k[j]]['weight'] += delay
-
-
-
+print "Weights Updated"
+print "Calculating Route...."
+route =  nx.dijkstra_path(G,"109","250",'weight')
+for s in route:
+    print subwayDictionary[s].name
+print nx.dijkstra_path_length(G,"109","250",'weight')
 
 
 
