@@ -1,6 +1,7 @@
 
 from google.transit import gtfs_realtime_pb2
 import urllib
+
 import datetime
 import time
 import pickle
@@ -17,7 +18,8 @@ def timediff(s1,s2):
     from datetime import datetime
     FMT = '%H:%M:%S'
     tdelta = datetime.strptime(s2, FMT) - datetime.strptime(s1, FMT)
-    return tdelta
+
+    return tdelta.total_seconds()
 realtimedata = []
 def loopdwlmta(x):	## send request to api mta.info using my own key
     feed = gtfs_realtime_pb2.FeedMessage()
@@ -73,7 +75,11 @@ file = open("stopTimesData.pkl","rb")
 stopTimesData = pickle.load(file)
 for i in realtimedata:
     if(i[0] in stopTimesData):
-        print "TripId: "+i[0]+" Station ID: "+i[1]+" Original Time: "+stopTimesData[i[0]][i[1]]+" Current Arrival Time: "+i[2]
+        s1 = stopTimesData[i[0]][i[1]]
+        s2 = i[2]
+        delay = float(timediff(s1, s2))
+
+        print "TripId: "+i[0]+" Station ID: "+i[1]+" Original Time: "+stopTimesData[i[0]][i[1]]+" Current Arrival Time: "+i[2]+" Delay: ",delay
 
 
 
