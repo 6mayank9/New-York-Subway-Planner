@@ -25,7 +25,7 @@ G = nx.Graph()                                # Undirected graph
 stations = []
 subwayDictionary = {}                         # Dictionary to get station object from station id
 b = station("a", "dummyStation", "-A")
-'''Lines 1-6 Graph'''
+'''Lines 1-6 & S Graph '''
 with open('Lines1-6.csv') as csvfile:
     readCsv = csv.reader(csvfile, delimiter=',')
     readCsv.next()
@@ -39,7 +39,10 @@ with open('Lines1-6.csv') as csvfile:
         if(a.id!=str(check)):
             G.add_edge(a.id, b.id, weight=1)                  # Add weight of edges here if required or later when reading gpickle file
         else:
-            check+=100
+            if check == 601:
+                check = 901
+            else:
+                check += 100
 
         b = a
 '''Lines A-F graph

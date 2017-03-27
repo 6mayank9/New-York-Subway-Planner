@@ -23,7 +23,7 @@ def timediff(s1,s2):
 realtimedata = []
 def loopdwlmta(x):	## send request to api mta.info using my own key
     feed = gtfs_realtime_pb2.FeedMessage()
-    response = urllib.urlopen('http://datamine.mta.info/mta_esi.php?key=44fe903c249d311125b5bc56d79ab7ac')
+    response = urllib.urlopen('http://datamine.mta.info/mta_esi.php?key=44fe903c249d311125b5bc56d79ab7ac&feed_id=1')
     feed.ParseFromString(response.read())
     ## looping the content downloaded
     tmpSys = datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')
@@ -34,6 +34,7 @@ def loopdwlmta(x):	## send request to api mta.info using my own key
             TripIdi = entity.trip_update.trip.trip_id
             Routei = entity.trip_update.trip.route_id
             p3trip = min(len(entity.trip_update.stop_time_update),3)
+
             j=0
             while j < p3trip:
                 tripcomplete = []
@@ -47,6 +48,7 @@ def loopdwlmta(x):	## send request to api mta.info using my own key
                     newfile.write(tripstr[0]+" "+tripstr[1]+" "+tripstr[2])
                     newfile.write("\n")
                 realtimedata.append([tripstr[0],tripstr[1],tripstr[2]])
+                print TripIdi+" "+stop_id+" "+tripstr[2]
                 j+=1
 """while True:
     try:
@@ -64,7 +66,7 @@ for i in realtimedata:
         s2 = i[2]
         delay = float(timediff(s1, s2))
         #print "TripId: "+i[0]+" Station ID: "+i[1]+" Original Time: "+stopTimesData[i[0]][i[1]]+" Current Arrival Time: "+i[2]+" Delay: ", delay
-        if delay > 0 and i[1][0:3] != str(902) and i[1][0:3] != str(901):
+        if delay > 0 :
             k = G.neighbors(i[1][0:3])
             for j in range(len(k)):
                 G[i[1][0:3]][k[j]]['weight'] += delay
