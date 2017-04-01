@@ -45,6 +45,7 @@ with open('Lines1-6.csv') as csvfile:
                 check += 100
 
         b = a
+G.remove_node("a")
 '''Lines A-F graph
 for i in ["A","B","C","D","E","F"]:
     with open('Line'+i+'.csv') as file:
@@ -80,8 +81,14 @@ D = list(nx.connected_component_subgraphs(G)) # Get the list of connected compon
 #    print D[0].nodes()[i].id
 adj_list_to_file(G,"tst.txt")
 
-
+jsondump = json_graph.node_link_data(G)
+jsondump['links'] = [{
+            'source': jsondump['nodes'][link['source']]['id'],
+            'target': jsondump['nodes'][link['target']]['id']
+        }
+        for link in jsondump['links']]
+print jsondump
 with open('networkdata1.json', 'w') as outfile1:
-    outfile1.write(json.dumps(json_graph.node_link_data(G)))
+    outfile1.write(json.dumps(jsondump))
 #print nx.info(D[0])
 #plt.show()
