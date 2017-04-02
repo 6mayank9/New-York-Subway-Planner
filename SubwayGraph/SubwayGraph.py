@@ -46,22 +46,36 @@ with open('Lines1-6.csv') as csvfile:
 
         b = a
 G.remove_node("a")
-'''Lines A-F graph
-for i in ["A","B","C","D","E","F"]:
+'''Lines B,D,N,Q,R,W graph'''
+for i in ["B","D","N","Q","R","W"]:
     with open('Line'+i+'.csv') as file:
         readCsv = csv.reader(file, delimiter=',')
         temp = readCsv.next()
         c = station(temp[0],temp[1],temp[5])
+        subwayDictionary[str(temp[0])] = c
         for row in readCsv:
             if(str(row[0]) in subwayDictionary):
                 d = subwayDictionary[str(row[0])]
             else:
-                d = station(row[0],row[1],row[5])
+                d = station(str(row[0]),row[1],row[5])
+
                 subwayDictionary[str(row[0])] = d
                 stations.append(a)
-            G.add_edge(d,c)
+            G.add_edge(d.id,c.id, weight =1)
             c=d
-'''
+'''Connecting Same Station with multiple ids'''
+G.add_edge("901","631",weight = 0)  #Grand Central
+G.add_edge("127","902",weight = 0)  #Times Sq
+G.add_edge("R16","901",weight = 0)  #Times Sq
+G.add_edge("R17","D17",weight = 0)  #Herald Sq
+G.add_edge("R20","635",weight = 0)  #14 St - Union Sq
+G.add_edge("R23","Q01",weight = 0)  #Canal St
+G.add_edge("639","R01",weight = 0)  #Canal St
+G.add_edge("235","D24",weight = 0)  #Atlantic Av-Barclays
+G.add_edge("R31","235",weight = 0)  #Atlantic Av-Barclays
+G.add_edge("A24","125",weight = 0)  #58 St - Columbus Circle
+
+
 import pickle
 newfile = open("alldumps.pkl","wb")           # Dumps the graph and dictionary to a file
 pickle.dump([subwayDictionary,G],newfile)
@@ -76,10 +90,11 @@ for i in range(len(k)):
 nx.draw(G)
 #print nx.is_connected(G)
 D = list(nx.connected_component_subgraphs(G)) # Get the list of connected components
-#print "Total connected components are: ",len(D)
+print "Total connected components are: ",len(D)
+print subwayDictionary["Q05"].name
 #for i in range(len(D[0])):
 #    print D[0].nodes()[i].id
-adj_list_to_file(G,"tst.txt")
+#adj_list_to_file(G,"tst.txt")
 
 jsondump = json_graph.node_link_data(G)
 jsondump['links'] = [{
@@ -87,7 +102,7 @@ jsondump['links'] = [{
             'target': jsondump['nodes'][link['target']]['id']
         }
         for link in jsondump['links']]
-print jsondump
+
 with open('networkdata1.json', 'w') as outfile1:
     outfile1.write(json.dumps(jsondump))
 #print nx.info(D[0])

@@ -134,12 +134,6 @@ stop_id,stop_name,stop_lat,stop_lon,stop_id2,trains,GEOID,NAMELSAD
 414,161 St - Yankee Stadium,40.827994,-73.925831,,4,36005,Bronx County
 415,149 St - Grand Concourse,40.818375,-73.927351,,4 5,36005,Bronx County
 416,138 St - Grand Concourse,40.813224,-73.929849,,4 5,36005,Bronx County
-621,125 St,40.804138000000000,-73.937593999999900,,4 5 6,36061,New York County,
-626,86 St,40.779491999999900,-73.955589000000000,,4 5 6,36061,New York County,
-629,59 St,40.762526000000000,-73.967967000000000,,4 5 6,36061,New York County,
-631,Grand Central - 42 St,40.751776000000000,-73.976848000000000,,4 5 6,36061,New York County,
-635,14 St - Union Sq,40.734673000000000,-73.989951000000000,,4 5 6,36061,New York County,
-640,Brooklyn Bridge - City Hall,40.713065000000000,-74.004131000000000,,4 5 6,36061,New York County,
 418,Fulton St,40.710368,-74.009509,,4 5,36061,New York County
 419,Wall St,40.707557,-74.011862,,4 5,36061,New York County
 420,Bowling Green,40.704817,-74.014065,,4 5,36061,New York County
@@ -165,10 +159,6 @@ stop_id,stop_name,stop_lat,stop_lon,stop_id2,trains,GEOID,NAMELSAD
 415,149 St - Grand Concourse,40.818375,-73.927351,,4 5,36005,Bronx County
 416,138 St - Grand Concourse,40.813224,-73.929849,,4 5,36005,Bronx County
 621,125 St,40.804138,-73.937594,,4 5 6,36061,New York County
-626,86 St,40.779492,-73.955589,,4 5 6,36061,New York County
-629,59 St,40.762526,-73.967967,,4 5 6,36061,New York County
-631,Grand Central - 42 St,40.751776,-73.976848,,4 5 6,36061,New York County
-635,14 St - Union Sq,40.734673,-73.989951,,4 5 6,36061,New York County
 640,Brooklyn Bridge - City Hall,40.713065,-74.004131,,4 5 6,36061,New York County
 418,Fulton St,40.710368,-74.009509,,4 5,36061,New York County
 419,Wall St,40.707557,-74.011862,,4 5,36061,New York County
@@ -221,5 +211,60 @@ stop_id,stop_name,stop_lat,stop_lon,stop_id2,trains,GEOID,NAMELSAD
 638,Spring St,40.722301,-73.997141,,6,36061,New York County
 639,Canal St,40.718803,-74.000193,,6,36061,New York County
 640,Brooklyn Bridge - City Hall,40.713065,-74.004131,,4 5 6,36061,New York County
-901,Grand Central - 42 St,40.752769000000000,-73.979189000000000,,S,36061,New York County
-902,Times Sq - 42 St,40.755983000000000,-73.986229000000000,,S,36061,New York County
+R01,Astoria - Ditmars Blvd,40.775036,-73.912034,,N W,36081,Queens County
+R03,Astoria Blvd,40.770258,-73.917843,,N W,36081,Queens County
+R04,30 Av,40.766779,-73.921479,,N W,36081,Queens County
+R05,Broadway,40.76182,-73.925508,,N W,36081,Queens County
+R06,36 Av,40.756804,-73.929575,,N W,36081,Queens County
+R08,39 Av,40.752882,-73.932755,,N W,36081,Queens County
+718,Queensboro Plaza,40.750582,-73.940202,R09,7 N W,36081,Queens County
+R11,Lexington Av/59 St,40.76266,-73.967258,,N R W,36061,New York County
+R13,5 Av/59 St,40.764811,-73.973347,,N R W,36061,New York County
+R14,57 St - 7 Av,40.764664,-73.980658,,N Q R W,36061,New York County
+R15,49 St,40.759901,-73.984139,,N R W,36061,New York County
+R16,Times Sq - 42 St,40.754672,-73.986754,,N Q R W,36061,New York County
+R17,34 St - Herald Sq,40.749567,-73.98795,,N Q R W,36061,New York County
+R20,14 St - Union Sq,40.735736,-73.990568,,N Q R W,36061,New York County
+Q01,Canal St,40.718383,-74.00046,,N Q,36061,New York County
+25,Atlantic Av - Barclays Ctr,40.683666,-73.97881,,D N R,36047,Kings County
+R36,36 St,40.655144,-74.003549,,D N R,36047,Kings County
+R41,59 St,40.641362,-74.017881,,N R,36047,Kings County
+N02,8 Av,40.635064,-74.011719,,N,36047,Kings County
+N03,Fort Hamilton Pkwy,40.631386,-74.005351,,N,36047,Kings County
+N04,New Utrecht Av,40.624842,-73.996353,,N,36047,Kings County
+N05,18 Av,40.620671,-73.990414,,N,36047,Kings County
+N06,20 Av,40.61741,-73.985026,,N,36047,Kings County
+N07,Bay Pkwy,40.611815,-73.981848,,N,36047,Kings County
+N08,Kings Hwy,40.603923,-73.980353,,N,36047,Kings County
+N09,Avenue U,40.597473,-73.979137,,N,36047,Kings County
+N10,86 St,40.592721,-73.97823,,N,36047,Kings County
+D43,Coney Island - Stillwell Av,40.577422,-73.981233,N12,D F N Q,36047,Kings County
+,,,,,,,
+Q05,96 St,40.784318,-73.947152,,Q,36061,New York County
+Q04,86 St,40.777891,-73.951787,,Q,36061,New York County
+Q03,72 St,40.768799,-73.958424,,Q,36061,New York County
+B08,Lexington Av/63 St,40.764629,-73.966113,,F Q,36061,New York County
+R14,57 St - 7 Av,40.764664,-73.980658,,N Q R W,36061,New York County
+R16,Times Sq - 42 St,40.754672,-73.986754,,N Q R W,36061,New York County
+R17,34 St - Herald Sq,40.749567,-73.98795,,N Q R W,36061,New York County
+Q01,Canal St,40.718383,-74.00046,,N Q,36061,New York County
+R30,DeKalb Av,40.690635,-73.981824,,B Q R,36047,Kings County
+D24,Atlantic Av - Barclays Ctr,40.68446,-73.97689,,B Q,36047,Kings County
+D25,7 Av,40.67705,-73.972367,,B Q,36047,Kings County
+D26,Prospect Park,40.661614,-73.962246,,B Q S,36047,Kings County
+D27,Parkside Av,40.655292,-73.961495,,Q,36047,Kings County
+D28,Church Av,40.650527,-73.962982,,B Q,36047,Kings County
+D29,Beverley Rd,40.644031,-73.964492,,Q,36047,Kings County
+D30,Cortelyou Rd,40.640927,-73.963891,,Q,36047,Kings County
+D31,Newkirk Plaza,40.635082,-73.962793,,B Q,36047,Kings County
+D32,Avenue H,40.62927,-73.961639,,Q,36047,Kings County
+D33,Avenue J,40.625039,-73.960803,,Q,36047,Kings County
+D34,Avenue M,40.617618,-73.959399,,Q,36047,Kings County
+D35,Kings Hwy,40.60867,-73.957734,,B Q,36047,Kings County
+D37,Avenue U,40.5993,-73.955929,,Q,36047,Kings County
+D38,Neck Rd,40.595246,-73.955161,,Q,36047,Kings County
+D39,Sheepshead Bay,40.586896,-73.954155,,B Q,36047,Kings County
+D40,Brighton Beach,40.577621,-73.961376,,B Q,36047,Kings County
+D41,Ocean Pkwy,40.576312,-73.968501,,Q,36047,Kings County
+D42,W 8 St - NY Aquarium,40.576127,-73.975939,,F Q,36047,Kings County
+D43,Coney Island - Stillwell Av,40.577422,-73.981233,N12,D F N Q,36047,Kings County

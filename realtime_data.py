@@ -22,6 +22,7 @@ def timediff(s1,s2):
     return tdelta.total_seconds()
 realtimedata = []
 def loopdwlmta(x):	## send request to api mta.info using my own key
+    '''Lines 1-6,S'''
     feed = gtfs_realtime_pb2.FeedMessage()
     response = urllib.urlopen('http://datamine.mta.info/mta_esi.php?key=44fe903c249d311125b5bc56d79ab7ac&feed_id=1')
     feed.ParseFromString(response.read())
@@ -48,8 +49,63 @@ def loopdwlmta(x):	## send request to api mta.info using my own key
                     newfile.write(tripstr[0]+" "+tripstr[1]+" "+tripstr[2])
                     newfile.write("\n")
                 realtimedata.append([tripstr[0],tripstr[1],tripstr[2]])
-                print TripIdi+" "+stop_id+" "+tripstr[2]
+                #print TripIdi+" "+stop_id+" "+tripstr[2]
                 j+=1
+    '''Lines N,Q,R,W'''
+    response = urllib.urlopen('http://datamine.mta.info/mta_esi.php?key=44fe903c249d311125b5bc56d79ab7ac&feed_id=16')
+    feed.ParseFromString(response.read())
+    tmpSys = datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S')
+    i = 1
+
+    for entity in feed.entity:
+        if entity.HasField('trip_update'):
+            TripIdi = entity.trip_update.trip.trip_id
+            Routei = entity.trip_update.trip.route_id
+            p3trip = min(len(entity.trip_update.stop_time_update), 3)
+
+            j = 0
+            while j < p3trip:
+                tripcomplete = []
+                ArrivalTime = entity.trip_update.stop_time_update[j].arrival.time
+                stop_id = entity.trip_update.stop_time_update[j].stop_id
+                station_nth = j
+                tripcomplete.extend([tmpSys, TripIdi, Routei, station_nth, stop_id, ArrivalTime])
+                # print tmpSys[11:19],"   ",TripIdi,"   ",stop_id,"   ",time.ctime(ArrivalTime)[11:]
+                if (time.ctime(ArrivalTime)[20:] != "1969"):
+                    tripstr = [TripIdi, stop_id, time.ctime(ArrivalTime)[11:19]]
+                    newfile.write(tripstr[0] + " " + tripstr[1] + " " + tripstr[2])
+                    newfile.write("\n")
+                realtimedata.append([tripstr[0], tripstr[1], tripstr[2]])
+                #print TripIdi+" "+stop_id+" "+tripstr[2]
+                j += 1
+    '''Lines B,D'''
+    response = urllib.urlopen('http://datamine.mta.info/mta_esi.php?key=44fe903c249d311125b5bc56d79ab7ac&feed_id=21')
+    feed.ParseFromString(response.read())
+    tmpSys = datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S')
+    i = 1
+
+    for entity in feed.entity:
+        if entity.HasField('trip_update'):
+            TripIdi = entity.trip_update.trip.trip_id
+            Routei = entity.trip_update.trip.route_id
+            p3trip = min(len(entity.trip_update.stop_time_update), 3)
+
+            j = 0
+            while j < p3trip:
+                tripcomplete = []
+                ArrivalTime = entity.trip_update.stop_time_update[j].arrival.time
+                stop_id = entity.trip_update.stop_time_update[j].stop_id
+                station_nth = j
+                tripcomplete.extend([tmpSys, TripIdi, Routei, station_nth, stop_id, ArrivalTime])
+                # print tmpSys[11:19],"   ",TripIdi,"   ",stop_id,"   ",time.ctime(ArrivalTime)[11:]
+                if (time.ctime(ArrivalTime)[20:] != "1969"):
+                    tripstr = [TripIdi, stop_id, time.ctime(ArrivalTime)[11:19]]
+                    newfile.write(tripstr[0] + " " + tripstr[1] + " " + tripstr[2])
+                    newfile.write("\n")
+                realtimedata.append([tripstr[0], tripstr[1], tripstr[2]])
+                print TripIdi + " " + stop_id + " " + tripstr[2]
+                j += 1
+
 """while True:
     try:
         loopdwlmta(1)
@@ -69,13 +125,14 @@ for i in realtimedata:
         if delay > 0 :
             k = G.neighbors(i[1][0:3])
             for j in range(len(k)):
-                G[i[1][0:3]][k[j]]['weight'] += delay
+                if(G[i[1][0:3]][k[j]]['weight'] != 0):
+                    G[i[1][0:3]][k[j]]['weight'] += delay
 print "Weights Updated"
 print "Calculating Route...."
-route =  nx.dijkstra_path(G,"109","250",'weight')
+route =  nx.dijkstra_path(G,"Q05","101",'weight')
 for s in route:
     print subwayDictionary[s].name
-print nx.dijkstra_path_length(G,"109","250",'weight')
+print nx.dijkstra_path_length(G,"Q05","101",'weight')
 
 
 
