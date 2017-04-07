@@ -24,7 +24,7 @@ realtimedata = []
 def loopdwlmta(x):	## send request to api mta.info using my own key
     '''All Lines'''
     feed = gtfs_realtime_pb2.FeedMessage()
-    response = [urllib.urlopen('http://datamine.mta.info/mta_esi.php?key=44fe903c249d311125b5bc56d79ab7ac&feed_id=1'),urllib.urlopen('http://datamine.mta.info/mta_esi.php?key=44fe903c249d311125b5bc56d79ab7ac&feed_id=16'),urllib.urlopen('http://datamine.mta.info/mta_esi.php?key=44fe903c249d311125b5bc56d79ab7ac&feed_id=21')]
+    response = [urllib.urlopen('http://datamine.mta.info/mta_esi.php?key=44fe903c249d311125b5bc56d79ab7ac&feed_id=1'),urllib.urlopen('http://datamine.mta.info/mta_esi.php?key=44fe903c249d311125b5bc56d79ab7ac&feed_id=21')]
     for t in range(len(response)):
 
         feed.ParseFromString(response[t].read())
@@ -50,7 +50,7 @@ def loopdwlmta(x):	## send request to api mta.info using my own key
                         newfile.write(tripstr[0]+" "+tripstr[1]+" "+tripstr[2])
                         newfile.write("\n")
                     realtimedata.append([tripstr[0],tripstr[1],tripstr[2]])
-                    print t
+
                     j += 1
 
 """while True:
@@ -68,18 +68,25 @@ for i in realtimedata:
         s1 = stopTimesData[i[0]][i[1]]
         s2 = i[2]
         delay = float(timediff(s1, s2))
-        #print "TripId: "+i[0]+" Station ID: "+i[1]+" Original Time: "+stopTimesData[i[0]][i[1]]+" Current Arrival Time: "+i[2]+" Delay: ", delay
+        print "TripId: "+i[0]+" Station ID: "+i[1]+" Original Time: "+stopTimesData[i[0]][i[1]]+" Current Arrival Time: "+i[2]+" Delay: ", delay
         if delay > 0 :
-            k = G.neighbors(i[1][0:3])
-            for j in range(len(k)):
-                if(G[i[1][0:3]][k[j]]['weight'] != 0):
-                    G[i[1][0:3]][k[j]]['weight'] += delay
+            if i[0][7] == "G":
+                i[0][7]="S"
+            print str(str(i[1][0:3])+i[0][7])
+            if(str(str(i[1][0:3])+i[0][7]) in subwayDictionary):
+                print "found"
+                k = G.neighbors(str(i[1][0:3])+i[0][7])
+                for j in range(len(k)):
+                    if(G[str(i[1][0:3])+i[0][7]][k[j]]['weight'] != 0):
+                        G[str(i[1][0:3])+i[0][7]][k[j]]['weight'] += delay
+
+
 print "Weights Updated"
 print "Calculating Route...."
-route =  nx.dijkstra_path(G,"D07","257",'weight')
+route =  nx.dijkstra_path(G,"1201","1202",'weight')
 for s in route:
     print subwayDictionary[s].name
-print nx.dijkstra_path_length(G,"D07","257",'weight')
+print nx.dijkstra_path_length(G,"1201","1202",'weight')
 
 
 
