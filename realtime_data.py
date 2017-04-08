@@ -24,7 +24,9 @@ realtimedata = []
 def loopdwlmta(x):	## send request to api mta.info using my own key
     '''All Lines'''
     feed = gtfs_realtime_pb2.FeedMessage()
-    response = [urllib.urlopen('http://datamine.mta.info/mta_esi.php?key=44fe903c249d311125b5bc56d79ab7ac&feed_id=1'),urllib.urlopen('http://datamine.mta.info/mta_esi.php?key=44fe903c249d311125b5bc56d79ab7ac&feed_id=21')]
+    response = [urllib.urlopen('http://datamine.mta.info/mta_esi.php?key=44fe903c249d311125b5bc56d79ab7ac&feed_id=1'),
+                urllib.urlopen('http://datamine.mta.info/mta_esi.php?key=44fe903c249d311125b5bc56d79ab7ac&feed_id=16'),
+                urllib.urlopen('http://datamine.mta.info/mta_esi.php?key=44fe903c249d311125b5bc56d79ab7ac&feed_id=21')]
     for t in range(len(response)):
 
         feed.ParseFromString(response[t].read())
