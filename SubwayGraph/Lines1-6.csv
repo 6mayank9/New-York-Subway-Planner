@@ -221,5 +221,3 @@ stop_id,stop_name,stop_lat,stop_lon,stop_id2,trains,GEOID,NAMELSAD
 638,Spring St,40.722301,-73.997141,,6,36061,New York County
 639,Canal St,40.718803,-74.000193,,6,36061,New York County
 640,Brooklyn Bridge - City Hall,40.713065,-74.004131,,4 5 6,36061,New York County
-901,Grand Central - 42 St,40.752769000000000,-73.979189000000000,,S,36061,New York County
-902,Times Sq - 42 St,40.755983000000000,-73.986229000000000,,S,36061,New York County

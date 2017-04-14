@@ -40,7 +40,7 @@ with open('Lines1-6.csv') as csvfile:
         a = station(row[0],row[1],row[5], row[2], row[3])
         subwayDictionary[str(row[0])] = a
         stations.append(a)
-        for h in ["1","2","3","4","5","6","S"]:
+        for h in ["1","2","3","4","5","6"]:
             if (str(str(row[0][:3])+h) in subwayDictionary) and (str(str(row[0][:3])+h) != str(row[0])):
                 connect = subwayDictionary[str(str(row[0][:3])+h)]
                 G.add_edge(a.id,connect.id, weight = 0)
@@ -93,22 +93,22 @@ G.add_edge("235","D24",weight = 0)  #Atlantic Av-Barclays
 G.add_edge("R31","235",weight = 0)  #Atlantic Av-Barclays
 G.add_edge("A24","125",weight = 0)  #58 St - Columbus Circle  
 '''
-for i in ["1", "2", "3", "4", "5", "6", "S","B","D","N","Q","R","W"]:
-    for j in ["1", "2", "3", "4", "5", "6", "S","B","D","N","Q","R","W"]:
-        if (str("901"+i) in subwayDictionary) and (str("631"+j) in subwayDictionary):
+for i in ["1", "2", "3", "4", "5", "6","B","D","N","Q","R","W"]:
+    for j in ["1", "2", "3", "4", "5", "6","B","D","N","Q","R","W"]:
+        ''' if (str("901"+i) in subwayDictionary) and (str("631"+j) in subwayDictionary):
             G.add_edge(str("901"+i),str("631"+j), weight = 0)
         if (str("127" + i) in subwayDictionary) and (str("902" + j) in subwayDictionary):
             G.add_edge(str("127" + i), str("902" + j), weight=0)
         if (str("R16" + i) in subwayDictionary) and (str("901" + j) in subwayDictionary):
-            G.add_edge(str("R16" + i), str("901" + j), weight=0)
+            G.add_edge(str("R16" + i), str("901" + j), weight=0)'''
         if (str("R17" + i) in subwayDictionary) and (str("D17" + j) in subwayDictionary):
             G.add_edge(str("R17" + i), str("D17" + j), weight=0)
         if (str("R20" + i) in subwayDictionary) and (str("635" + j) in subwayDictionary):
             G.add_edge(str("R20" + i), str("635" + j), weight=0)
         if (str("R23" + i) in subwayDictionary) and (str("Q01" + j) in subwayDictionary):
             G.add_edge(str("R23" + i), str("Q01" + j), weight=0)
-        if (str("639" + i) in subwayDictionary) and (str("R01" + j) in subwayDictionary):
-            G.add_edge(str("639" + i), str("R01" + j), weight=0)
+        if (str("639" + i) in subwayDictionary) and (str("135" + j) in subwayDictionary):
+            G.add_edge(str("639" + i), str("135" + j), weight=0)
         if (str("235" + i) in subwayDictionary) and (str("D24" + j) in subwayDictionary):
             G.add_edge(str("235" + i), str("D24" + j), weight=0)
         if (str("R31" + i) in subwayDictionary) and (str("235" + j) in subwayDictionary):
