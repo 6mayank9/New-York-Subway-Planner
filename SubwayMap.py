@@ -43,8 +43,8 @@ def stop_name_to_stopid(x):
                 stopidset.append(str(row['stop_id'])+str(row['trains'][0:1]))                
     return stopidset
 print stop_name_to_stopid('96 St')
-source = stop_name_to_stopid()
-destination = stop_name_to_stopid()
+source = stop_name_to_stopid(start)
+destination = stop_name_to_stopid(end)
 temp = sys.maxint
 
 for a in range(len(source)):
@@ -57,3 +57,9 @@ for a in range(len(source)):
 
 for i in finalpath:
     print subwayDictionary[i].name
+    
+ #need to creat list of long & lat coordinate tuples of final path named "minpath" example here: https://deparkes.co.uk/2016/06/03/plot-lines-in-folium/
+    
+folium.PolyLine(minpath, color="red", weight=2.5, opacity=1).add_to(nyc)
+ 
+nyc.save("subway.html")
