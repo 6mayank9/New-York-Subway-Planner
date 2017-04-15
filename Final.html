@@ -10,17 +10,17 @@
 
 <head>I would like to minimize:</head>
 
-	<form action="/action_page.txt" method="get">
+	<form action="/cgi-bin/SubwayMap.py" method="get">
 
 		<input type="radio" name="min" value="Crowd">  Crowdedness</br>
 		<input type="radio" name="min" value="Time">  Time</br> 
 		<input type="radio" name="min" value="Hops">  Transfers</br></br>
 
 		<head>Origin:</head>
-		<input type="text" id="city" name="city" list="cityname"><br></br>
+		<input type="text" id="start" name="origin" list="cityname"><br></br>
 
 		<head>Destination:</head>
-		<input type="text" id="dest" name="destination" list="cityname"><br></br>	
+		<input type="text" id="end" name="dest" list="cityname"><br></br>	
 		
 		<input type="submit">
 
