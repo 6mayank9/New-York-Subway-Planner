@@ -31,7 +31,6 @@ def loopdwlmta(x):	## send request to api mta.info using my own key
 
         feed.ParseFromString(response[t].read())
 
-
         for entity in feed.entity:
             if entity.HasField('trip_update'):
                 TripIdi = entity.trip_update.trip.trip_id
@@ -44,9 +43,15 @@ def loopdwlmta(x):	## send request to api mta.info using my own key
                     ArrivalTime = entity.trip_update.stop_time_update[j].arrival.time
                     stop_id = entity.trip_update.stop_time_update[j].stop_id
                     station_nth = j
+
                     if time.ctime(ArrivalTime)[20:]!="1969":
-                        tripstr = [TripIdi,stop_id,time.ctime(ArrivalTime)[11:19]]
+                        #print TripIdi
+                        if (len(TripIdi)<=20):
+                            tripstr = [TripIdi,stop_id,time.ctime(ArrivalTime)[11:19]]
+                        else:
+                            tripstr = [TripIdi[13:], stop_id, time.ctime(ArrivalTime)[11:19]]
                     realtimedata.append([tripstr[0],tripstr[1],tripstr[2]])
+                    #print tripstr
 
                     j += 1
 
@@ -61,6 +66,7 @@ loopdwlmta(1)
 staticDatafile = open("stopTimesData.pkl","rb")
 stopTimesData = pickle.load(staticDatafile)
 for i in realtimedata:
+    print i
     if i[0] in stopTimesData:
         s1 = stopTimesData[i[0]][i[1]]
         s2 = i[2]
@@ -74,13 +80,14 @@ for i in realtimedata:
                 for j in range(len(k)):
                     if(G[str(i[1][0:3])+i[0][7]][k[j]]['weight'] != 0):
                         G[str(i[1][0:3])+i[0][7]][k[j]]['weight'] += delay
+                        print str(i[1][0:3])+i[0][7]," ",k[j]," ",delay
 
 
 print "Weights Updated"
 print "Calculating Route...."
 route =  nx.dijkstra_path(G,"2352","R11N",'weight')
-for s in route:
-    print s," ", subwayDictionary[s].name
+for i in range(len(route)):
+    print route[i]," ", subwayDictionary[route[i]].name," ",G[route[i]][route[i+1]]['weight']
 print nx.dijkstra_path_length(G,"2352","R11N",'weight')
 
 

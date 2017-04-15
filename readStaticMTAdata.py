@@ -6,6 +6,7 @@ with open('stop_times.txt') as trips:
         stationId =  temp[3]
         arrivalTime = temp[1]
         uniqueTripID = row.split(',')[0][13:]
+        print uniqueTripID
         if(uniqueTripID in a):
             a[uniqueTripID][stationId] = arrivalTime
         else:

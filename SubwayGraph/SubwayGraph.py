@@ -79,7 +79,7 @@ for i in ["B","D","N","Q","R","W"]:
                 for h in ["1", "2", "3", "4", "5", "6", "S","B","D","N","Q","R","W"]:
                     if (str(str(row[0][:3]) + h) in subwayDictionary) and (str(str(row[0][:3]) + h) != str(row[0])):
                         connect = subwayDictionary[str(str(row[0][:3]) + h)]
-                        print "Connecting: ",d.id," ",connect.id
+                        #print "Connecting: ",d.id," ",connect.id
                         G.add_edge(d.id, connect.id, weight=0)
 
                 subwayDictionary[str(row[0])] = d
