@@ -1,18 +1,33 @@
 import csv
 import networkx as nx
 class station:                                # station class to store attributes of each subway station
-    def __init__(self, stop_id, stop_name, trains):
+    def __init__(self, stop_id, stop_name, trains, latitude, longitude):
         self.id = stop_id                     # Unique Station ID
         self.name = stop_name                 # Station name
         self.trains = trains                  # List of trains at this staion
+        self.longitude = longitude
+        self.latitude = latitude
 
 
 # change input for the stations that you want to count crowdedness
+a={}
+with open('turnstile_170408.txt') as turnstile:
+    for row in turnstile:
 
+        temp = row.split(',')
+        turnstileid = temp[1]
+        time = temp[6] + temp[7]
+        entries = int(temp[9])
+        exits = int(temp[10])
+        if turnstileid not in a:
+            a[turnstileid] = {}
+        if time not in a[turnstileid]:
+            a[turnstileid][time] = 0
+        a[turnstileid][time] += abs((entries + exits))
 
 def wieght_for_cowededness(input):
     def crowdedness(x):
-        a = {}
+
         def searchTime(currTime,date):
             currTime = currTime.replace(":","")
             prev = -1
@@ -43,20 +58,8 @@ def wieght_for_cowededness(input):
 
                 nextRet = "".join(list1)
             return prevRet,nextRet
-        with open('turnstile_170408.txt') as turnstile:
-            for row in turnstile:
 
-                temp = row.split(',')
-                turnstileid = temp[1]
-                time = temp[6] + temp[7]
-                entries = int(temp[9])
-                exits = int(temp[10])
-                if turnstileid not in a:
-                    a[turnstileid] = {}
-                if time not in a[turnstileid]:
-                    a[turnstileid][time] = 0
 
-                a[turnstileid][time] += (entries + exits)
         if x not in a:
             return 0
         prev,next = searchTime("20:22:40","04/06/2017")
@@ -70,7 +73,7 @@ def wieght_for_cowededness(input):
         elif '04/06/201723:00:00' in a[x]:
             crowdedness = int(a[x]['04/06/201723:00:00'] - a[x]['04/06/201719:00:00'])'''
         #print "prev: ", a[x][prev], " next: ", a[x][next]
-        crowd = int(a[x][next] - a[x][prev])
+        crowd = abs(int(a[x][next] - a[x][prev]))
         return crowd
 
     weight = 0
@@ -96,13 +99,15 @@ for stopid in subwayDictionary.items():
         if (G[str(stopid[0])][k[i]]['weight'] != 0):
             G[str(stopid[0])][k[i]]['weight'] += int(crowd)
 
-print "Weights Updated"
+'''print "Weights Updated"
 print "Calculating Route...."
 route = nx.dijkstra_path(G, "1201", "1202", 'weight')
 for s in route:
     print subwayDictionary[s].name
-print nx.dijkstra_path_length(G, "1201", "1202", 'weight')
-
+print nx.dijkstra_path_length(G, "1201", "1202", 'weight')'''
+def getPath(source,destination):
+    route = nx.dijkstra_path(G, source, destination, 'weight')
+    return route
 
 #print wieght_for_cowededness("B22")
 
