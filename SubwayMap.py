@@ -57,8 +57,10 @@ for a in range(len(source)):
 
 for i in finalpath:
     print subwayDictionary[i].name
-    
- #need to creat list of long & lat coordinate tuples of final path named "minpath" example here: https://deparkes.co.uk/2016/06/03/plot-lines-in-folium/
+ 
+minpath=[]
+for key in subwayDictionary:
+    minpath.append(tuple(subwayDictionary[key]))
     
 folium.PolyLine(minpath, color="red", weight=2.5, opacity=1).add_to(nyc)
  
