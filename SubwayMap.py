@@ -27,5 +27,25 @@ nyc.save("subway.html")
 filehandler = open("alldumps.pkl","rb")
 subwayDictionary,G = pickle.load(filehandler)
 path = turnstiledata.getPath("1011","2012")
+import csv
+def stop_name_to_stopid(x):
+    stopidset=[]
+    with open('SubwayStops.csv') as stopname:
+        reader = csv.DictReader(stopname)
+        for row in reader:
+            if row['stop_name'] == x:
+                stopidset.append(str(row['stop_id'])+str(row['trains'][0:1]))                
+    return stopidset
+print stop_name_to_stopid('96 St')
+source = stop_name_to_stopid()
+destination = stop_name_to_stopid()
+temp = sys.maxint
+
+for a in range(len(source)):
+    for b in range(len(destination)):
+        path = turnstiledata(source[a],destination[b])
+                          
+
+
 for i in path:
     print subwayDictionary[i].name
