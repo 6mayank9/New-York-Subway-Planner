@@ -43,19 +43,22 @@ with open('Lines1-6.csv') as csvfile:
         for h in ["1","2","3","4","5","6"]:
             if (str(str(row[0][:3])+h) in subwayDictionary) and (str(str(row[0][:3])+h) != str(row[0])):
                 connect = subwayDictionary[str(str(row[0][:3])+h)]
+                #print "Connecting: ",a.id," ",connect.id
                 G.add_edge(a.id,connect.id, weight = 0)
         if(a.id[:3]!=str(check[p])):
             G.add_edge(a.id, b.id, weight=1)                  # Add weight of edges here if required or later when reading gpickle file
         else:
-            p += 1
 
-            subwayDictionary.pop(str(row[0]))
+            p += 1
+            print str(row[0])
+            subwayDictionary.pop(str(row[0]))                 # remove station with wrong line ID
 
             line = str(int(line)+1)
             if line == "7":
                line = "S"
             a.id = a.id[:3]+line
-            subwayDictionary[a.id] = a
+            subwayDictionary[a.id] = a                         # Add station with correct ID
+            #print a.id
         #print a.id+" "+subwayDictionary[a.id].name
 
 
@@ -72,10 +75,12 @@ for i in ["B","D","N","Q","R","W"]:
                 row[0] = row[0]+i
 
                 d = station(str(row[0]),row[1],row[5], row[2], row[3])
+
                 for h in ["1", "2", "3", "4", "5", "6", "S","B","D","N","Q","R","W"]:
                     if (str(str(row[0][:3]) + h) in subwayDictionary) and (str(str(row[0][:3]) + h) != str(row[0])):
                         connect = subwayDictionary[str(str(row[0][:3]) + h)]
-                        G.add_edge(a.id, connect.id, weight=0)
+                        print "Connecting: ",d.id," ",connect.id
+                        G.add_edge(d.id, connect.id, weight=0)
 
                 subwayDictionary[str(row[0])] = d
                 stations.append(a)
