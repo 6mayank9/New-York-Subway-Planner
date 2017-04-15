@@ -3,6 +3,7 @@ import folium
 from pandas import compat
 import pickle
 import networkx as nx
+import cgi
 
 class station:                                # station class to store attributes of each subway station
     def __init__(self, stop_id, stop_name, trains, latitude, longitude):
@@ -13,6 +14,11 @@ class station:                                # station class to store attribute
         self.latitude = latitude
 
 import turnstiledata
+
+form = cgi.FieldStorage()
+criteria =  form.getvalue('min')
+start =  form.getvalue('origin')
+end =  form.getvalue('dest')
 
 subways = pd.read_csv("subway_stops.csv")
  
