@@ -43,9 +43,11 @@ temp = sys.maxint
 
 for a in range(len(source)):
     for b in range(len(destination)):
-        path = turnstiledata(source[a],destination[b])
-                          
+        path, length = turnstiledata(source[a],destination[b])
+        if(length<temp):
+            finalpath = path
+            temp = length
 
 
-for i in path:
+for i in finalpath:
     print subwayDictionary[i].name
