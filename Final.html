@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<title>Real Time Subway Route</title>
+<body>
+
+<input type="image" src="AppLogo.jpg" onClick="history.go(0)" VALUE="Refresh" style="width:250px;height:125px   ;/>
+
+
+<img src="Subway Logo.jpg" alt="AppLogo" style="width:250px;height:125px;"></br></br>
+
+<head>I would like to minimize:</head>
+
+	<form action="/action_page.txt" method="get">
+
+		<input type="radio" name="min" value="Crowd">  Crowdedness</br>
+		<input type="radio" name="min" value="Time">  Time</br> 
+		<input type="radio" name="min" value="Hops">  Transfers</br></br>
+
+		<head>Origin:</head>
+		<input type="text" id="city" name="city" list="cityname"><br></br>
+
+		<head>Destination:</head>
+		<input type="text" id="dest" name="destination" list="cityname"><br></br>	
+		
+		<input type="submit">
+
+	</form></br> 
+
+		<datalist id="cityname">
+  			<option value="Van Cortlandt Park - 242 St"> 
+  			<option value="238 St"> 
+  			<option value="231 St"> 
+   			<option value="Marble Hill - 225 St"> 
+   			<option value="215 St"> 
+ 			<option value="207 St"> 
+  			<option value="Dyckman St"> 
+  			<option value="191 St"> 
+ 			<option value="181 St"> 
+ 			<option value="168 St - Washington Hts"> 
+  			<option value="157 St"> 
+  			<option value="145 St"> 
+  			<option value="137 St - City College"> 
+  			<option value="125 St"> 
+  			<option value="116 St - Columbia University"> 
+  			<option value="Cathedral Pkwy"> 
+  			<option value="103 St"> 
+  			<option value="96 St"> 
+ 			<option value="86 St"> 
+  			<option value="79 St"> 
+  			<option value="72 St"> 
+  			<option value="66 St - Lincoln Center"> 
+  			<option value="59 St - Columbus Circle"> 
+ 			<option value="50 St"> 
+    			<option value="Times Sq - 42 St"> 
+    			<option value="34 St - Penn Station"> 
+    			<option value="28 St"> 
+    			<option value="23 St"> 
+    			<option value="18 St"> 
+    			<option value="14 St"> 
+    			<option value="Christopher St - Sheridan Sq"> 
+    			<option value="Houston St"> 
+    			<option value="Canal St"> 
+    			<option value="Franklin St"> 
+    			<option value="Chambers St"> 
+    			<option value="Cortlandt St (Closed)"> 
+    			<option value="Rector St"> 
+    			<option value="South Ferry Loop"> 
+    			<option value="Wakefield - 241 St"> 
+    			<option value="Nereid Av"> 
+    			<option value="233 St"> 
+    			<option value="225 St"> 
+    			<option value="219 St"> 
+    			<option value="Gun Hill Rd"> 
+    			<option value="Burke Av"> 
+    			<option value="Allerton Av"> 
+    			<option value="Pelham Pkwy"> 
+    			<option value="Bronx Park East"> 
+    			<option value="E 180 St"> 
+    			<option value="West Farms Sq - E Tremont Av"> 
+    			<option value="174 St"> 
+    			<option value="Freeman St"> 
+    			<option value="Simpson St"> 
+    			<option value="Intervale Av"> 
+    			<option value="Prospect Av"> 
+    			<option value="Jackson Av"> 
+    			<option value="3 Av - 149 St"> 
+    			<option value="149 St - Grand Concourse"> 
+    			<option value="135 St"> 
+    			<option value="125 St"> 
+    			<option value="116 St"> 
+    			<option value="Central Park North (110 St)"> 
+    			<option value="Park Pl"> 
+    			<option value="Fulton St"> 
+    			<option value="Wall St"> 
+    			<option value="Clark St"> 
+    			<option value="Borough Hall"> 
+    			<option value="Hoyt St"> 
+    			<option value="Nevins St"> 
+    			<option value="Atlantic Av - Barclays Ctr"> 
+    			<option value="Bergen St"> 
+    			<option value="Grand Army Plaza"> 
+    			<option value="Eastern Pkwy - Brooklyn Museum"> 
+    			<option value="Franklin Av"> 
+    			<option value="President St"> 
+    			<option value="Sterling St"> 
+    			<option value="Winthrop St"> 
+    			<option value="Church Av"> 
+    			<option value="Beverly Rd"> 
+    			<option value="Newkirk Av"> 
+    			<option value="Flatbush Av - Brooklyn College"> 
+    			<option value="Nostrand Av"> 
+    			<option value="Kingston Av"> 
+    			<option value="Crown Hts - Utica Av"> 
+    			<option value="Sutter Av - Rutland Rd"> 
+    			<option value="Saratoga Av"> 
+    			<option value="Rockaway Av"> 
+    			<option value="Junius St"> 
+    			<option value="Pennsylvania Av"> 
+    			<option value="Van Siclen Av"> 
+    			<option value="New Lots Av"> 
+    			<option value="Harlem - 148 St"> 
+    			<option value="145 St"> 
+    			<option value="Woodlawn"> 
+    			<option value="Mosholu Pkwy"> 
+    			<option value="Bedford Park Blvd - Lehman College"> 
+    			<option value="Kingsbridge Rd"> 
+    			<option value="Fordham Rd"> 
+    			<option value="183 St"> 
+    			<option value="Burnside Av"> 
+    			<option value="176 St"> 
+    			<option value="Mt Eden Av"> 
+    			<option value="170 St"> 
+    			<option value="167 St"> 
+    			<option value="161 St - Yankee Stadium"> 
+    			<option value="149 St - Grand Concourse"> 
+    			<option value="138 St - Grand Concourse"> 
+    			<option value="Fulton St"> 
+    			<option value="Wall St"> 
+    			<option value="Bowling Green"> 
+    			<option value="Borough Hall"> 
+    			<option value="Eastchester - Dyre Av"> 
+    			<option value="Baychester Av"> 
+    			<option value="Gun Hill Rd"> 
+    			<option value="Pelham Pkwy"> 
+    			<option value="Morris Park"> 
+    			<option value="Pelham Bay Park"> 
+    			<option value="Buhre Av"> 
+    			<option value="Middletown Rd"> 
+    			<option value="Westchester Sq - E Tremont Av"> 
+    			<option value="Zerega Av"> 
+    			<option value="Castle Hill Av"> 
+    			<option value="Parkchester"> 
+    			<option value="St Lawrence Av"> 
+    			<option value="Morrison Av- Sound View"> 
+    			<option value="Elder Av"> 
+    			<option value="Whitlock Av"> 
+    			<option value="Hunts Point Av"> 
+    			<option value="Longwood Av"> 
+    			<option value="E 149 St"> 
+    			<option value="E 143 St - St Mary's St"> 
+    			<option value="Cypress Av"> 
+    			<option value="Brook Av"> 
+    			<option value="3 Av - 138 St"> 
+    			<option value="125 St"> 
+    			<option value="116 St"> 
+    			<option value="110 St"> 
+    			<option value="103 St"> 
+    			<option value="96 St"> 
+    			<option value="86 St"> 
+    			<option value="77 St"> 
+    			<option value="68 St - Hunter College"> 
+    			<option value="59 St"> 
+    			<option value="51 St"> 
+    			<option value="Grand Central - 42 St"> 
+    			<option value="33 St"> 
+  	  		<option value="28 St"> 
+  	  		<option value="23 St"> 
+  	  		<option value="14 St - Union Sq"> 
+  	  		<option value="Astor Pl"> 
+	  		<option value="Bleecker St"> 
+  	  		<option value="Spring St"> 
+ 	  		<option value="Canal St"> 
+	  		<option value="Brooklyn Bridge - City Hall"> 
+ 
+
+		</datalist>
+<div id="contentframe" style="position:absolute; top: 150px; left: 350px;">
+<iframe src=subway.html name="targetframe" allowTransparency="true" 
+scrolling="no" frameborder="0" width="700" height="400" ></iframe></div>
+
+ 
+</body>
+</html>
+
