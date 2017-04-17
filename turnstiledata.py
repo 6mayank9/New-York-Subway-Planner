@@ -107,7 +107,8 @@ for s in route:
 print nx.dijkstra_path_length(G, "1201", "1202", 'weight')'''
 def getPath(source,destination):
     route = nx.dijkstra_path(G, source, destination, 'weight')
-    return route,nx.dijkstra_path_length(G, source, destination, 'weight')
+    length = nx.dijkstra_path_length(G, source, destination, 'weight')
+    return route, length
 
 #print wieght_for_cowededness("B22")
 
