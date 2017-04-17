@@ -3,6 +3,7 @@ import folium
 from pandas import compat
 import pickle
 import networkx as nx
+import sys
 import cgi
 
 class station:                                # station class to store attributes of each subway station
@@ -42,6 +43,9 @@ def stop_name_to_stopid(x):
             if row['stop_name'] == x:
                 stopidset.append(str(row['stop_id'])+str(row['trains'][0:1]))                
     return stopidset
+#print stop_name_to_stopid('96 St')
+source = stop_name_to_stopid("66 St - Lincoln Center")
+destination = stop_name_to_stopid("96 St")
 print stop_name_to_stopid('96 St')
 source = stop_name_to_stopid(start)
 destination = stop_name_to_stopid(end)
@@ -49,13 +53,14 @@ temp = sys.maxint
 
 for a in range(len(source)):
     for b in range(len(destination)):
-        path, length = turnstiledata(source[a],destination[b])
+        path, length = turnstiledata.getPath(source[a],destination[b])
         if(length<temp):
             finalpath = path
             temp = length
 
 
 for i in finalpath:
+    print subwayDictionary[i].name," ",subwayDictionary[i].longitude," ",subwayDictionary[i].latitude
     print subwayDictionary[i].name
  
 minpath=[]
@@ -65,3 +70,4 @@ for key in subwayDictionary:
 folium.PolyLine(minpath, color="red", weight=2.5, opacity=1).add_to(nyc)
  
 nyc.save("subway.html")
+
