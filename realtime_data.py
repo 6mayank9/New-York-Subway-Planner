@@ -51,7 +51,10 @@ def loopdwlmta(x):	## send request to api mta.info using my own key
                         if (len(TripIdi)<=20):
                             tripstr = [TripIdi,stop_id,time.ctime(ArrivalTime)[11:19]]
                         else:
+                            TripIdi = TripIdi[13:]
+                            TripIdi = TripIdi[:7].replace(TripIdi[6],"_"+TripIdi[6]) + TripIdi[7:]
                             tripstr = [TripIdi, stop_id, time.ctime(ArrivalTime)[11:19]]
+                        print tripstr
                     realtimedata.append([tripstr[0],tripstr[1],tripstr[2]])
                     #print tripstr
 
@@ -73,11 +76,11 @@ for i in realtimedata:
         s1 = stopTimesData[i[0]][i[1]]
         s2 = i[2]
         delay = float(timediff(s1, s2))
-        print "TripId: "+i[0]+" Station ID: "+i[1]+" Original Time: "+stopTimesData[i[0]][i[1]]+" Current Arrival Time: "+i[2]+" Delay: ", delay
+        #print "TripId: "+i[0]+" Station ID: "+i[1]+" Original Time: "+stopTimesData[i[0]][i[1]]+" Current Arrival Time: "+i[2]+" Delay: ", delay
         if delay > 0 :
             print str(str(i[1][0:3])+i[0][7])
             if(str(str(i[1][0:3])+i[0][7]) in subwayDictionary) and i[0][7] != "G":
-                print "found"
+                #print "found"
                 k = G.neighbors(str(i[1][0:3])+i[0][7])
                 for j in range(len(k)):
                     if(G[str(i[1][0:3])+i[0][7]][k[j]]['weight'] != 0):
