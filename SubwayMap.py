@@ -23,8 +23,8 @@ start =  form.getvalue('origin')
 end =  form.getvalue('dest')
 
 start = "238 St"
-end = "145 St"
-criteria = "Transfer"
+end = "New Lots Av"
+criteria = "Time"
 if criteria == "Crowd":
     import turnstiledata
 elif criteria == "Time":

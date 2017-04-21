@@ -45,15 +45,16 @@ def loopdwlmta(x):	## send request to api mta.info using my own key
                     station_nth = j
 
                     if time.ctime(ArrivalTime)[20:]!="1969":
-                        #print TripIdi
+
                         if (len(TripIdi)<=20):
                             tripstr = [TripIdi,stop_id,time.ctime(ArrivalTime)[11:19]]
+                            #print tripstr
                         else:
                             TripIdi = TripIdi[13:]
                             TripIdi = TripIdi[:7].replace(TripIdi[6],"_"+TripIdi[6]) + TripIdi[7:]
                             tripstr = [TripIdi, stop_id, time.ctime(ArrivalTime)[11:19]]
 
-                    realtimedata.append([tripstr[0],tripstr[1],tripstr[2]])
+                        realtimedata.append([tripstr[0],tripstr[1],tripstr[2]])
                     #print tripstr
 
                     j += 1
