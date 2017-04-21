@@ -22,9 +22,6 @@ criteria =  form.getvalue('min')
 start =  form.getvalue('origin')
 end =  form.getvalue('dest')
 
-start = "103 St"
-end = "New Lots Av"
-criteria = "Time"
 if criteria == "Crowd":
     import turnstiledata
 elif criteria == "Time":
