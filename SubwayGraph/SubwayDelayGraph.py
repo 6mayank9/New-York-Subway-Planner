@@ -37,7 +37,6 @@ with open('Lines1-6.csv') as csvfile:
         else:
 
             p += 1
-            print str(row[0])
             subwayDictionary.pop(str(row[0]))                 # remove station with wrong line ID
 
             line = str(int(line)+1)
@@ -75,7 +74,7 @@ for i in ["1", "2", "3", "4", "5", "6"]:
             G.add_edge(str("A24" + i), str("125" + j), weight=0)
 
 import pickle
-newfile = open("alldumps.pkl","wb")           # Dumps the graph and dictionary to a file
+newfile = open("allDelaydumps.pkl","wb")           # Dumps the graph and dictionary to a file
 pickle.dump([subwayDictionary,G],newfile)
 
 print subwayDictionary["6016"].name

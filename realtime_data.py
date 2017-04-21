@@ -12,7 +12,7 @@ class station:                                # station class to store attribute
         self.trains = trains                  # List of trains at this staion
         self.longitude = longitude
         self.latitude = latitude
-filehandler = open("alldumps.pkl","rb")
+filehandler = open("allDelaydumps.pkl","rb")
 subwayDictionary,G = pickle.load(filehandler)
 newfile = open('realtimedata.txt' ,'w')
 
@@ -26,9 +26,7 @@ realtimedata = []
 def loopdwlmta(x):	## send request to api mta.info using my own key
     '''All Lines'''
     feed = gtfs_realtime_pb2.FeedMessage()
-    response = [urllib.urlopen('http://datamine.mta.info/mta_esi.php?key=44fe903c249d311125b5bc56d79ab7ac&feed_id=1'),
-                urllib.urlopen('http://datamine.mta.info/mta_esi.php?key=44fe903c249d311125b5bc56d79ab7ac&feed_id=16'),
-                urllib.urlopen('http://datamine.mta.info/mta_esi.php?key=44fe903c249d311125b5bc56d79ab7ac&feed_id=21')]
+    response = [urllib.urlopen('http://datamine.mta.info/mta_esi.php?key=44fe903c249d311125b5bc56d79ab7ac&feed_id=1')]
     for t in range(len(response)):
 
         feed.ParseFromString(response[t].read())
@@ -54,47 +52,44 @@ def loopdwlmta(x):	## send request to api mta.info using my own key
                             TripIdi = TripIdi[13:]
                             TripIdi = TripIdi[:7].replace(TripIdi[6],"_"+TripIdi[6]) + TripIdi[7:]
                             tripstr = [TripIdi, stop_id, time.ctime(ArrivalTime)[11:19]]
-                        print tripstr
+
                     realtimedata.append([tripstr[0],tripstr[1],tripstr[2]])
                     #print tripstr
 
                     j += 1
 
-"""while True:
-    try:
-        loopdwlmta(1)
-    except:
-        continue
-    time.sleep(30)
-"""
 loopdwlmta(1)
 staticDatafile = open("stopTimesData.pkl","rb")
 stopTimesData = pickle.load(staticDatafile)
 for i in realtimedata:
-    print i
+    #print i
     if i[0] in stopTimesData:
         s1 = stopTimesData[i[0]][i[1]]
         s2 = i[2]
         delay = float(timediff(s1, s2))
         #print "TripId: "+i[0]+" Station ID: "+i[1]+" Original Time: "+stopTimesData[i[0]][i[1]]+" Current Arrival Time: "+i[2]+" Delay: ", delay
         if delay > 0 :
-            print str(str(i[1][0:3])+i[0][7])
+            #print str(str(i[1][0:3])+i[0][7])
             if(str(str(i[1][0:3])+i[0][7]) in subwayDictionary) and i[0][7] != "G":
                 #print "found"
                 k = G.neighbors(str(i[1][0:3])+i[0][7])
-                for j in range(len(k)):
+                for j in range(len(k)-1):
                     if(G[str(i[1][0:3])+i[0][7]][k[j]]['weight'] != 0):
                         G[str(i[1][0:3])+i[0][7]][k[j]]['weight'] += delay
-                        print str(i[1][0:3])+i[0][7]," ",k[j]," ",delay
+                        #print str(i[1][0:3])+i[0][7]," ",k[j]," ",delay
 
 
-print "Weights Updated"
+'''print "Weights Updated"
 print "Calculating Route...."
-route =  nx.dijkstra_path(G,"2352","R11N",'weight')
-for i in range(len(route)):
+route =  nx.dijkstra_path(G,"1011","2012",'weight')
+for i in range(len(route)-1):
     print route[i]," ", subwayDictionary[route[i]].name," ",G[route[i]][route[i+1]]['weight']
-print nx.dijkstra_path_length(G,"2352","R11N",'weight')
-
+print nx.dijkstra_path_length(G,"1011","2012",'weight')
+'''
+def getPath(source,destination):
+    route = nx.dijkstra_path(G, source, destination, 'weight')
+    length = nx.dijkstra_path_length(G, source, destination, 'weight')
+    return route, length
 
 
 

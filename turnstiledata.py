@@ -91,9 +91,9 @@ filehandler = open("alldumps.pkl","rb")
 subwayDictionary,G = pickle.load(filehandler)
 
 for stopid in subwayDictionary.items():
-    print str(stopid[0][:3])
+    #print str(stopid[0][:3])
     crowd = str(wieght_for_cowededness(stopid[0][:3]))
-    print " Weight: "+ crowd
+    #print " Weight: "+ crowd
     k = G.neighbors(str(stopid[0]))
     for i in range(len(k)):
         if (G[str(stopid[0])][k[i]]['weight'] != 0):

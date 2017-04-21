@@ -1,3 +1,4 @@
+#!/Python27/python
 import pandas as pd
 import folium
 from pandas import compat
@@ -14,13 +15,22 @@ class station:                                # station class to store attribute
         self.longitude = longitude
         self.latitude = latitude
 
-import turnstiledata
+
 
 form = cgi.FieldStorage()
 criteria =  form.getvalue('min')
 start =  form.getvalue('origin')
 end =  form.getvalue('dest')
 
+start = "238 St"
+end = "145 St"
+criteria = "Transfer"
+if criteria == "Crowd":
+    import turnstiledata
+elif criteria == "Time":
+    import realtime_data
+else:
+    import transfers
 subways = pd.read_csv("subway_stops.csv")
  
 nyc = folium.Map(location=[subways.stop_lat.mean(axis=0),subways.stop_lon.mean(axis=0)], zoom_start=12)
@@ -33,7 +43,6 @@ nyc.save("subway.html")
 
 filehandler = open("alldumps.pkl","rb")
 subwayDictionary,G = pickle.load(filehandler)
-path = turnstiledata.getPath("1011","2012")
 import csv
 def stop_name_to_stopid(x):
     stopidset=[]
@@ -43,31 +52,37 @@ def stop_name_to_stopid(x):
             if row['stop_name'] == x:
                 stopidset.append(str(row['stop_id'])+str(row['trains'][0:1]))                
     return stopidset
-#print stop_name_to_stopid('96 St')
-source = stop_name_to_stopid("66 St - Lincoln Center")
-destination = stop_name_to_stopid("96 St")
-print stop_name_to_stopid('96 St')
+
 source = stop_name_to_stopid(start)
 destination = stop_name_to_stopid(end)
 temp = sys.maxint
-
 for a in range(len(source)):
     for b in range(len(destination)):
-        path, length = turnstiledata.getPath(source[a],destination[b])
-        if(length<temp):
-            finalpath = path
-            temp = length
+        try:
+            if criteria == "Crowd":
+                path, length = turnstiledata.getPath(source[a],destination[b])
+            elif criteria == "Time":
+                path, length = realtime_data.getPath(source[a],destination[b])
+            else:
+                path, length = transfers.getPath(source[a],destination[b])
+            if(length<temp):
+                finalpath = path
+                temp = length
+        except:
+            continue
 
 
-for i in finalpath:
-    print subwayDictionary[i].name," ",subwayDictionary[i].longitude," ",subwayDictionary[i].latitude
-    print subwayDictionary[i].name
- 
+
 minpath=[]
-for key in subwayDictionary:
-    minpath.append(tuple(subwayDictionary[key]))
+for key in finalpath:
+    minpath.append(tuple([subwayDictionary[key].latitude,subwayDictionary[key].longitude]))
     
 folium.PolyLine(minpath, color="red", weight=2.5, opacity=1).add_to(nyc)
  
 nyc.save("subway.html")
 
+print "Content-type: text/html"
+print
+f = open("subway.html","r")
+for row in f:
+    print row
