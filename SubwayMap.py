@@ -22,7 +22,7 @@ criteria =  form.getvalue('min')
 start =  form.getvalue('origin')
 end =  form.getvalue('dest')
 
-start = "238 St"
+start = "103 St"
 end = "New Lots Av"
 criteria = "Time"
 if criteria == "Crowd":
@@ -56,6 +56,7 @@ def stop_name_to_stopid(x):
 source = stop_name_to_stopid(start)
 destination = stop_name_to_stopid(end)
 temp = sys.maxint
+finalpath=[]
 for a in range(len(source)):
     for b in range(len(destination)):
         try:
@@ -72,17 +73,28 @@ for a in range(len(source)):
             continue
 
 
+if len(finalpath) == 0:
+    print "Content-type: text/html"
+    print
+    print "<html>"
+    print "<head>"
+    print "<title>Error</title>"
+    print "</head>"
+    print "<body>"
+    print "<p>Path Not Found</p>"
+    print "</body>"
+    print "</html>"
+else:
+    minpath = []
+    for key in finalpath:
+        minpath.append(tuple([subwayDictionary[key].latitude, subwayDictionary[key].longitude]))
 
-minpath=[]
-for key in finalpath:
-    minpath.append(tuple([subwayDictionary[key].latitude,subwayDictionary[key].longitude]))
-    
-folium.PolyLine(minpath, color="red", weight=2.5, opacity=1).add_to(nyc)
- 
-nyc.save("subway.html")
+    folium.PolyLine(minpath, color="red", weight=2.5, opacity=1).add_to(nyc)
 
-print "Content-type: text/html"
-print
-f = open("subway.html","r")
-for row in f:
-    print row
+    nyc.save("subway.html")
+
+    print "Content-type: text/html"
+    print
+    f = open("subway.html", "r")
+    for row in f:
+        print row
