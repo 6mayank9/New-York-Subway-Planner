@@ -22,6 +22,10 @@ criteria =  form.getvalue('min')
 start =  form.getvalue('origin')
 end =  form.getvalue('dest')
 
+criteria = "Crowd"
+start = "Astoria Blvd"
+end = "Atlantic Av - Barclays Ctr"
+
 if criteria == "Crowd":
     import turnstiledata
 elif criteria == "Time":
@@ -85,13 +89,14 @@ else:
     minpath = []
     for key in finalpath:
         minpath.append(tuple([subwayDictionary[key].latitude, subwayDictionary[key].longitude]))
-
+        print key,": ",subwayDictionary[key].name
     folium.PolyLine(minpath, color="red", weight=2.5, opacity=1).add_to(nyc)
 
     nyc.save("subway.html")
 
-    print "Content-type: text/html"
+'''    print "Content-type: text/html"
     print
     f = open("subway.html", "r")
     for row in f:
         print row
+'''
