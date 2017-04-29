@@ -17,3 +17,6 @@ Using this weighted graph we calculate the shortest distance using Dijkstra's al
   
  Thanks to MTA for providing real time feeds and turnstiledata.
 
+# How to run: 
+Download the files to your local server.
+Run Final.html
