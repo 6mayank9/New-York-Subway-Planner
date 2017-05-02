@@ -1,5 +1,5 @@
 # New-York-Subway-Planner
-Project to optimize the subway routes using real-time MTA feeds for Algorithms course in Rutgers University.
+Project to optimize the subway routes using real-time MTA feed.
 
 The User has three options to select from <br />
   1. Crowdedness: When the user wants to travel on a route with less crowd <br />
